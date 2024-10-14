@@ -5,7 +5,10 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 import testingLibrary from "eslint-plugin-testing-library";
 import jestDom from "eslint-plugin-jest-dom";
-import { fixupPluginRules } from "@eslint/compat";
+import { fixupPluginRules, fixupConfigRules } from "@eslint/compat";
+import { FlatCompat } from "@eslint/eslintrc";
+
+const flatCompat = new FlatCompat();
 
 export default tseslint.config(
   { ignores: ["dist"] },
@@ -36,4 +39,5 @@ export default tseslint.config(
       ...testingLibrary.configs["flat/react"].rules,
     },
   },
+  ...fixupConfigRules(flatCompat.extends("plugin:storybook/recommended")),
 );

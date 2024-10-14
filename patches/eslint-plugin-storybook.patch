@@ -1,0 +1,20 @@
+diff --git a/dist/rules/await-interactions.js b/dist/rules/await-interactions.js
+index 2f774b4824e246cd2397c8a8983acd87b3860d89..1cb696bccf55a92be69814f41c05fdfaf4b08151 100644
+--- a/dist/rules/await-interactions.js
++++ b/dist/rules/await-interactions.js
+@@ -87,13 +87,13 @@ module.exports = (0, create_storybook_rule_1.createStorybookRule)({
+             return getClosestFunctionAncestor(parent);
+         };
+         const isUserEventFromStorybookImported = (node) => {
+-            return (node.source.value === '@storybook/testing-library' &&
++            return (['@storybook/test', '@storybook/testing-library'].includes(node.source.value) &&
+                 node.specifiers.find((spec) => (0, ast_1.isImportSpecifier)(spec) &&
+                     spec.imported.name === 'userEvent' &&
+                     spec.local.name === 'userEvent') !== undefined);
+         };
+         const isExpectFromStorybookImported = (node) => {
+-            return (node.source.value === '@storybook/jest' &&
++            return (['@storybook/test', '@storybook/jest'].includes(node.source.value) &&
+                 node.specifiers.find((spec) => (0, ast_1.isImportSpecifier)(spec) && spec.imported.name === 'expect') !== undefined);
+         };
+         //----------------------------------------------------------------------
