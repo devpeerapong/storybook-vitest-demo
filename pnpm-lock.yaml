@@ -44,6 +44,9 @@ importers:
       '@storybook/blocks':
         specifier: ^8.3.5
         version: 8.3.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.5)
+      '@storybook/experimental-addon-test':
+        specifier: ^8.3.5
+        version: 8.3.5(@vitest/browser@2.1.3)(storybook@8.3.5)(vitest@2.1.3)
       '@storybook/react':
         specifier: ^8.3.5
         version: 8.3.5(@storybook/test@8.3.5(storybook@8.3.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.5)(typescript@5.6.3)
@@ -955,6 +958,13 @@ packages:
 
   '@storybook/csf@0.1.11':
     resolution: {integrity: sha512-dHYFQH3mA+EtnCkHXzicbLgsvzYjcDJ1JWsogbItZogkPHgSJM/Wr71uMkcvw8v9mmCyP4NpXJuu6bPoVsOnzg==}
+
+  '@storybook/experimental-addon-test@8.3.5':
+    resolution: {integrity: sha512-u3pgV9Pny8NFX3mn2q/ptk/mScXuyGsxMYRtQ6f8Y+pxRGxnp3Vf/CzZHHQxtYBRgJBfEKkFK2kJOqvhScGv5Q==}
+    peerDependencies:
+      '@vitest/browser': ^2.0.0
+      storybook: ^8.3.5
+      vitest: ^2.0.0
 
   '@storybook/global@5.0.0':
     resolution: {integrity: sha512-FcOqPAXACP0I3oJ/ws6/rrPT9WGhu915Cg8D02a9YxLo0DE9zI+a9A5gRGvmQ09fiWPukqI8ZAEoQEdWUKMQdQ==}
@@ -5271,6 +5281,13 @@ snapshots:
   '@storybook/csf@0.1.11':
     dependencies:
       type-fest: 2.19.0
+
+  '@storybook/experimental-addon-test@8.3.5(@vitest/browser@2.1.3)(storybook@8.3.5)(vitest@2.1.3)':
+    dependencies:
+      '@storybook/csf': 0.1.11
+      '@vitest/browser': 2.1.3(@vitest/spy@2.1.3)(playwright@1.48.0)(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.5))(vitest@2.1.3)
+      storybook: 8.3.5
+      vitest: 2.1.3(@types/node@22.7.5)(@vitest/browser@2.1.3)(jsdom@25.0.1)(msw@2.4.11(typescript@5.6.3))
 
   '@storybook/global@5.0.0': {}
 

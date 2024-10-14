@@ -1,8 +1,7 @@
 import { defineWorkspace } from "vitest/config";
+import { storybookTest } from "@storybook/experimental-addon-test/vitest-plugin";
 
 export default defineWorkspace([
-  // If you want to keep running your existing tests in Node.js, uncomment the next line.
-  // 'vite.config.ts',
   {
     extends: "vite.config.ts",
     test: {
@@ -11,10 +10,24 @@ export default defineWorkspace([
         name: "chromium",
         provider: "playwright",
         headless: true,
-        ui: false,
         // https://playwright.dev
         providerOptions: {},
       },
+    },
+  },
+  {
+    extends: "vite.config.ts",
+    plugins: [storybookTest()],
+    test: {
+      name: "storybook",
+      browser: {
+        enabled: true,
+        name: "chromium",
+        provider: "playwright",
+        headless: true,
+      },
+      include: ["**/*.stories.tsx"],
+      setupFiles: ["./.storybook/vitest.setup.ts"],
     },
   },
 ]);
