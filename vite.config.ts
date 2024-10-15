@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react()],
   test: {
     environment: "jsdom",
-    setupFiles: ["vitest.setup.ts"],
+    setupFiles: ["vitest.setup.ts", ".storybook/vitest.setup.ts"],
     coverage: {
       include: ["src/**", "!src/**/*.stories.*"],
       provider: "istanbul",
